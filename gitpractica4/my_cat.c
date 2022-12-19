@@ -9,7 +9,7 @@ int main()
 {
     char file_name[N];
     int fd, bytes_read;
-    char buf[N];
+    char array[N];
 
     // DEMANEM EL NOM DE L'ARXIU
     printf("Introdueix el nom d'un arxiu: ");
@@ -24,7 +24,7 @@ int main()
 
     else
     { // arxiu existeix --> llegir els continguts de l'arxiu
-        bytes_read = read(fd, buf, N);
+        bytes_read = read(fd, array, N);
         if (bytes_read == -1)
         { // error
             printf("ERROR en el procés de lectura\n");
@@ -33,7 +33,7 @@ int main()
         else
         { // MOSTRAR PER PANTALLA els continguts llegits
             printf("El arxiu diu:\n");
-            printf("%s", buf);
+            printf("%s", array);
 
             // TANCAR ARXIU
             if (close(fd) == 0)
